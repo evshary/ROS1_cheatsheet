@@ -59,7 +59,7 @@ sudo apt install python-bloom fakeroot
 * Create debian structure
 
 ```bash
-roscd beginner_tutorials
+# Go into the source folder, i.e. <your_workspace>/src/<your_project>
 bloom-generate rosdebian --os-name ubuntu --ros-distro noetic
 # Will generate debian folder
 fakeroot debian/rules binary
