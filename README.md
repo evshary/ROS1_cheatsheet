@@ -31,6 +31,8 @@ catkin_install_python(PROGRAMS scripts/talker.py
 * Build
 
 ```bash
+# Back to example_pkg_ws
+cd ../../
 catkin_make
 ```
 
@@ -39,5 +41,34 @@ catkin_make
 ```
 source devel/setup.bash
 rosrun beginner_tutorials talker.py
+```
+
+# Create deb for ROS package - bloom-generate
+
+Refer to [How to make a debian from a ROS package](https://gist.github.com/awesomebytes/196eab972a94dd8fcdd69adfe3bd1152)
+
+* Install necessary packages
+
+```bash
+sudo apt install dpkg-dev debhelper
+sudo apt install python3-bloom fakeroot
+# or if you use python2
+sudo apt install python-bloom fakeroot
+```
+
+* Create debian structure
+
+```bash
+roscd beginner_tutorials
+bloom-generate rosdebian --os-name ubuntu --ros-distro noetic
+# Will generate debian folder
+fakeroot debian/rules binary
+# Will create deb file in upper folder
+```
+
+* Install the package
+
+```bash
+sudo apt install ../*.deb
 ```
 
