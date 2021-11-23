@@ -72,3 +72,12 @@ fakeroot debian/rules binary
 sudo apt install ../*.deb
 ```
 
+# Tips
+* Run ROS package with parameter
+  - `rosrun <package name> <executables> <param>:=<value>`
+  - `roslaunch <package name> <launch file> <param>:=<value>`
+* See the dependency of the ROS package
+  - `rospack depends <ROS package name>`
+* Show debug messages
+  - Modify $ROS_ROOT/config/rosconsole.config
+  - $ROS_ROOT might be something like `/opt/ros/noetic/share/ros`
